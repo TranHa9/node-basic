@@ -38,6 +38,7 @@ body {
 
 .create-user-container .btn {
     margin-top: 15px;
+    cursor: pointer;
 }
 
 .update-user-container {
@@ -46,5 +47,18 @@ body {
 }
 
 .update-user-container label {
+    display: block;
+}
+
+.upload-file-container .btn {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.upload-file-container {
+    padding: 15px;
+}
+
+.upload-file-containe label {
     display: block;
 }
