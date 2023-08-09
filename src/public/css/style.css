@@ -51,7 +51,7 @@ body {
 }
 
 .upload-file-container .btn {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     cursor: pointer;
 }
 
@@ -61,4 +61,8 @@ body {
 
 .upload-file-containe label {
     display: block;
+}
+
+hr {
+    border-top: 3px solid #eee !important;
 }

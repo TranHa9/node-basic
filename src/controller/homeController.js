@@ -52,10 +52,7 @@ let getUploadFilePage = async (req, res) => {
 const upload = multer().single('profile_pic');
 
 let hendleUploadFile = async (req, res) => {
-    // 'profile_pic' is the name of our file input field in the HTML form
     upload(req, res, function (err) {
-        // req.file contains information of uploaded file
-        // req.body contains information of text fields, if there were any
 
         if (req.fileValidationError) {
             return res.send(req.fileValidationError);
@@ -71,10 +68,30 @@ let hendleUploadFile = async (req, res) => {
         }
 
         // Display uploaded image for user validation
-        res.send(`You have uploaded this image: <hr/><img src="/image/${req.file.filename}" width="500"><hr /><a href="./">Upload another image</a>`);
+        res.send(`You have uploaded this image: <hr/><img src="/image/${req.file.filename}" width="500"><hr /><a href="/upload">Upload another image</a>`);
     });
+}
+
+let handleUploadMultipleFlile = async (req, res) => {
+
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.files) {
+        return res.send('Please select an image to upload');
+    }
+    let result = "You have uploaded these images: <hr />";
+    const files = req.files;
+    let index, len;
+
+    // Loop through all the uploaded images and display them on frontend
+    for (index = 0, len = files.length; index < len; ++index) {
+        result += `<img src="/image/${files[index].filename}" width="300" style="margin-right: 20px;">`;
+    }
+    result += '<hr/><a href="/upload">Upload more images</a>';
+    res.send(result);
 }
 module.exports = {
     getHomepage, getDetailPage, createNewUser, deleteUser, getEditUser, postUpdateUser,
-    getUploadFilePage, hendleUploadFile
+    getUploadFilePage, hendleUploadFile, handleUploadMultipleFlile
 }

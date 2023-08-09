@@ -14,18 +14,22 @@
         <a class="active" href="/upload">Upload file</a>
     </div>
     <div class="upload-file-container">
+        <h1>Tải lên file bằng Express.js và Multer</h1>
         <form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
             <div>
-                <label>Avatar:</label>
+                <h2>Upload single file:</h2>
+                <span>Select your profile picture:</span>
                 <input type="file" name="profile_pic" />
             </div>
             <div>
-                <button class="btn" type="submit">Save</button>
+                <button class="btn" type="submit">Upload</button>
             </div>
         </form>
+        <hr>
         <form method="POST" action="/upload-multiple-images" enctype="multipart/form-data">
             <div>
-                <label>Select multiple images:</label>
+                <h2>Upload Multiple files:</h2>
+                <span>Select multiple images:</span>
                 <input type="file" name="multiple_images" multiple />
             </div>
             <div>
