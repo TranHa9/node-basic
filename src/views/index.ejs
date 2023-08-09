@@ -38,9 +38,11 @@
                             <td>
                                 <%= dataUser[i].lastName %>
                             </td>
-                            <td>
-                                <button type="submit"><a href="/detail/user/<%=dataUser[i].id%>"
-                                        target="_blank">Detail</a></button>
+                            <td style="display: flex; gap: 15px;">
+                                <form>
+                                    <button type="submit"><a href="/detail/user/<%=dataUser[i].id%>"
+                                            target="_blank">Detail</a></button>
+                                </form>
                                 <form action="/edit-user/<%=dataUser[i].id%>" method="GET">
                                     <button type="submit">Edit </button>
                                 </form>
